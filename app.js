@@ -139,7 +139,7 @@ const saveItems = function(e) {
   displayItems();
 };
 // to edit item from the shopping list
-const editItem = (e)=> {
+const editItem = e => {
   let item = document.querySelector("#input1");
   let quantity = document.querySelector("#input2");
   let price = document.querySelector("#input3");
@@ -161,10 +161,11 @@ const editItem = (e)=> {
   localStorage.setItem("itemInfos", JSON.stringify(itemInfos));
 };
 // to check the task done
-const taskCompleted = ()=> {
+const taskCompleted = e => {
+  console.log(e);
   // this.classList.toggle("done");
   let itemInfos = JSON.parse(localStorage.getItem("itemInfos"));
-  let p = this.nextSibling.nextSibling.nextSibling;
+  let p = e.target.nextSibling.nextSibling.nextSibling;
 
   itemInfos.forEach((el, i) => {
     if (el.id == p.innerText) {
